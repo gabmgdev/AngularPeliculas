@@ -1,0 +1,11 @@
+.checked {
+  color: orange;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+mat-icon:active {
+  transform: scale(1.3);
+}
