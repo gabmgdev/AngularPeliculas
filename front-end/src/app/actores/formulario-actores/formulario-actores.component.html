@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input type="text" formControlName="nombre" matInput required />
+    <mat-error>El campo nombre es requerido</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Fecha de Nacimiento</mat-label>
+    <input
+      type="text"
+      formControlName="fechaNacimiento"
+      matInput
+      [matDatepicker]="picker"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <h4>Seleccione una imagen</h4>
+  <app-input-img
+    [urlImagenActual]="modelo?.foto"
+    (archivoSeleccionado)="archivoSeleccionado($event)"
+  ></app-input-img>
+
+  <h4>Biografía del actor</h4>
+  <app-input-markdown
+    [placeholderTextarea]="'Biografía'"
+    (changeMarkdown)="cambioMarkdown($event)"
+  ></app-input-markdown>
+
+  <div>
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      mat-flat-button
+      color="primary"
+    >
+      Guardar cambios
+    </button>
+    <a mat-stroked-button routerLink="/actores">Cancelar</a>
+  </div>
+</form>

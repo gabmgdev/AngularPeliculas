@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { cineCreacionDto } from '../cine';
 
 @Component({
   selector: 'app-crear-cine',
   templateUrl: './crear-cine.component.html',
-  styleUrls: ['./crear-cine.component.css']
+  styleUrls: ['./crear-cine.component.css'],
 })
 export class CrearCineComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  guardarCambios(cine: cineCreacionDto) {
+    console.log(cine);
   }
-
 }
